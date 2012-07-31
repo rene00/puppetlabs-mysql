@@ -17,6 +17,36 @@ class mysql::params {
   $etc_root_password   = false
   $ssl                 = false
 
+  # logging
+  $slowlog_file        = '/var/log/mysql/mysql-slow.log'
+  $slowlog_time        = 2
+  $max_binlog_size     = '100M'
+
+  # cache
+  $query_cache_size    = '1024M'
+  $query_cache_limit   = '64M'
+
+  # threads
+  $sort_buffer_size   = '2M'
+  $read_buffer_size   = '2M'
+  $read_rnd_buffer_size = '2M'
+  $join_buffer_size = '3M'
+
+  # innodb
+  $innodb_data_file_path           = 'ibdata1:10M;ibdata2:50M:autoextend'
+  $innodb_data_home_dir            = '/var/lib/mysql/ibdata'
+  $innodb_log_group_home_dir       = '/var/lib/mysql/iblog'
+  $innodb_file_per_table           = 1
+  $innodb_buffer_pool_size         = '128M'
+  $innodb_buffer_pool_instances    = 2
+  $innodb_log_file_size            = '100M'
+  $innodb_log_buffer_size          = '8M'
+  $innodb_open_files               = 300
+
+  # threading
+  $thread_concurrency = '2'
+
+
   case $::operatingsystem {
     "Ubuntu": {
       $service_provider = upstart
@@ -30,6 +60,7 @@ class mysql::params {
     'RedHat': {
       $basedir               = '/usr'
       $datadir               = '/var/lib/mysql'
+      $tmpdir                = '/tmp'
       $service_name          = 'mysqld'
       $client_package_name   = 'mysql'
       $server_package_name   = 'mysql-server'
@@ -49,6 +80,7 @@ class mysql::params {
     'Debian': {
       $basedir              = '/usr'
       $datadir              = '/var/lib/mysql'
+      $tmpdir               = '/tmp'
       $service_name         = 'mysql'
       $client_package_name  = 'mysql-client'
       $server_package_name  = 'mysql-server'
@@ -67,6 +99,7 @@ class mysql::params {
     'FreeBSD': {
       $basedir               = '/usr/local'
       $datadir               = '/var/db/mysql'
+      $tmpdir                = '/tmp'
       $service_name          = 'mysql-server'
       $client_package_name   = 'databases/mysql55-client'
       $server_package_name   = 'databases/mysql55-server'
