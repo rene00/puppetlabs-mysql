@@ -59,6 +59,7 @@ class mysql::config(
   $innodb_log_file_size   = $mysql::params::innodb_log_file_size,
   $innodb_log_buffer_size = $mysql::params::innodb_log_buffer_size,
   $innodb_open_files = $mysql::params::innodb_open_files,
+  $innodb_flush_method = $mysql::params::innodb_flush_method,
   $thread_concurrency = $mysql::params::thread_concurrency,
   $max_binlog_size = $mysql::params::max_binlog_size,
   $ssl               = $mysql::params::ssl,

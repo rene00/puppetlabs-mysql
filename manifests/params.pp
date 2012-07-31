@@ -42,6 +42,7 @@ class mysql::params {
   $innodb_log_file_size            = '100M'
   $innodb_log_buffer_size          = '8M'
   $innodb_open_files               = 300
+  $innodb_flush_method             = 'O_DIRECT'
 
   # threading
   $thread_concurrency = '2'
