@@ -15,6 +15,9 @@
 #   [*ssl_ca]             - path to ssl-ca
 #   [*ssl_cert]           - path to ssl-cert
 #   [*ssl_key]            - path to ssl-key
+#   [*tmpdir*]            - path to tmpdir.
+#   [*query_cache_size*]  - query cache size.
+#   [*query-cache-limit*] - query cache limit.
 #
 # Actions:
 #
@@ -39,6 +42,25 @@ class mysql::config(
   $config_file       = $mysql::params::config_file,
   $socket            = $mysql::params::socket,
   $datadir           = $mysql::params::datadir,
+  $tmpdir            = $mysql::params::tmpdir,
+  $query_cache_size  = $mysql::params::query_cache_size,
+  $query_cache_limit = $mysql::params::query_cache_limit,
+  $sort_buffer_size  = $mysql::params::sort_buffer_size,
+  $read_buffer_size  = $mysql::params::read_buffer_size,
+  $read_rnd_buffer_size = $mysql::params::read_rnd_buffer_size,
+  $join_buffer_size   = $mysql::params::join_buffer_size,
+  $bind_address       = $mysql::params::bind_address,
+  $innodb_data_file_path  = $mysql::params::innodb_data_file_path,
+  $innodb_data_home_dir   = $mysql::params::innodb_data_home_dir,
+  $innodb_log_group_home_dir  = $mysql::params::innodb_log_group_home_dir,
+  $innodb_file_per_table  = $mysql::params::innodb_file_per_table,
+  $innodb_buffer_pool_size    = $mysql::params::innodb_buffer_pool_size,
+  $innodb_buffer_pool_instances   = $mysql::params::innodb_buffer_pool_instances,
+  $innodb_log_file_size   = $mysql::params::innodb_log_file_size,
+  $innodb_log_buffer_size = $mysql::params::innodb_log_buffer_size,
+  $innodb_open_files = $mysql::params::innodb_open_files,
+  $thread_concurrency = $mysql::params::thread_concurrency,
+  $max_binlog_size = $mysql::params::max_binlog_size,
   $ssl               = $mysql::params::ssl,
   $ssl_ca            = $mysql::params::ssl_ca,
   $ssl_cert          = $mysql::params::ssl_cert,
